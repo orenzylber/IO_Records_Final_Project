@@ -169,7 +169,7 @@ Home Page:
 
 
 Albums Page:
-![Albums Page](image-1.png)
+![Albums Page](image-5.png)
 
 
 Album Page:
