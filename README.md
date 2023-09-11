@@ -124,7 +124,7 @@ This is the backend component of the Django + Angular project. It includes Djang
 ### Usage
 #### Installation of the Backend
 
-1. Clone the repository: `git clone gh repo clone Idanbenaim/ecommerce_io-shop_django_angular`
+1. Clone the repository: `git clone https://github.com/orenzylber/IO_Records_Final_Project.git`
 2. cd Back
 3. Create a virtual environment: `python -m virtualenv myenv`
 4. Activate the virtual environment:
@@ -164,15 +164,20 @@ Welcome to the Music Store Web Application! This frontend part of the applicatio
 4. type command to install: `nmp i`
 5. type run command: `ng serve -o`
 
+Home Page:
 ![Home Page](image.png)
 
+Albums Page:
 ![Albums Page](image-1.png)
 
+Artists Page:
 ![Artists Page](image-2.png)
 
+Album Page:
 ![Album Page](image-3.png)
 
-## License
+
+### License
 
 This project is licensed under the [MIT License](LICENSE).
 
