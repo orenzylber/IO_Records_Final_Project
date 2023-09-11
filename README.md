@@ -168,8 +168,7 @@ Home Page:
 ![Home Page](image.png)
 
 
-Albums Page:
-![Albums Page](image-1.png)
+
 
 
 Album Page:
