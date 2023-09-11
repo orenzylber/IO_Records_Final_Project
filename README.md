@@ -168,11 +168,13 @@ Home Page:
 ![Home Page](image.png)
 
 
-
+Albums Page:
+![Albums Page](image-1.png)
 
 
 Album Page:
 ![Album Page](image-3.png)
+
 
 Artists Page:
 ![Artists Page](image-2.png)
