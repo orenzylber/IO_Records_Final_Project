@@ -33,3 +33,7 @@
   align-items: center; /* Vertically align items */
   margin-left: auto; /* Push items to the right */
 }
+
+.active-link {
+  background-color: #541971; /* Amber for active link */
+}

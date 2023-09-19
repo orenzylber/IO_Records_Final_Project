@@ -6,14 +6,12 @@ import { Album } from 'src/app/models/album';
 import { BASE_API_URL } from 'src/app/api.config';
 import { CartService } from 'src/app/services/cart.service';
 import { AlbumRatingService } from 'src/app/services/album-rating.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-album-page',
   templateUrl: './album-page.component.html',
-  styleUrls: ['./album-page.component.css']
-
+  styleUrls: ['./album-page.component.css'],
 })
 export class AlbumPageComponent implements OnInit {
   BASE_API_URL = BASE_API_URL;
@@ -21,7 +19,7 @@ export class AlbumPageComponent implements OnInit {
   quantity: number = 0;
   upVotes: number | undefined;
   downVotes: number | undefined;
-  safeYtLink: SafeResourceUrl = "";
+  ytLink: SafeHtml | undefined;
 
   constructor(
     private albumPageService: AlbumPageService,
@@ -29,7 +27,7 @@ export class AlbumPageComponent implements OnInit {
     private cartService: CartService,
     private albumRatingService: AlbumRatingService,
     private sanitizer: DomSanitizer
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getAlbum();
@@ -45,19 +43,26 @@ export class AlbumPageComponent implements OnInit {
     if (id) {
       // id exists, convert it to a number and fetch the album details
       const idNumber = Number(id);
-      this.albumPageService.getAlbum(idNumber).subscribe(albm => {
-        this.album = albm;
-        this.updateQuantity();
-        // Fetch album ratings here
-        this.albumRatingService.getAlbumRatings(idNumber).subscribe(ratings => {
-          // console.log("ratings: ", ratings)
-          this.upVotes = ratings.up_votes;
-          this.downVotes = ratings.down_votes;
-        });
-        // this.safeYtLink; async () => await this.sanitizer.bypassSecurityTrustResourceUrl(this.album?.yt_link || "");
-
-      },
-        albumError => {
+      this.albumPageService.getAlbum(idNumber).subscribe(
+        (albm) => {
+          this.album = albm;
+          this.updateQuantity();
+          // Fetch album ratings here
+          this.albumRatingService
+            .getAlbumRatings(idNumber)
+            .subscribe((ratings) => {
+              // console.log("ratings: ", ratings)
+              this.upVotes = ratings.up_votes;
+              this.downVotes = ratings.down_votes;
+            });
+          // Assuming you have received the JSON response and stored it in 'album' variable
+          if (this.album?.yt_link) {
+            this.ytLink = this.sanitizer.bypassSecurityTrustHtml(
+              this.album.yt_link
+            );
+          }
+        },
+        (albumError) => {
           console.error('Error fetching album:', albumError);
         }
       );
@@ -68,7 +73,9 @@ export class AlbumPageComponent implements OnInit {
 
   updateQuantity(): void {
     if (this.album) {
-      const cartItem = this.cartService.getCart().find(item => item.album.id === this.album?.id);
+      const cartItem = this.cartService
+        .getCart()
+        .find((item) => item.album.id === this.album?.id);
       this.quantity = cartItem ? cartItem.quantity : 0;
     }
   }
@@ -85,5 +92,3 @@ export class AlbumPageComponent implements OnInit {
     }
   }
 }
-
-
