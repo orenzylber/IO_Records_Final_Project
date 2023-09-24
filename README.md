@@ -133,6 +133,9 @@ This is the backend component of the Django + Angular project. It includes Djang
 5. Install the required packages: `pip install -r requirements.txt`
 6. Run the Django development server: `python manage.py runserver`
 
+#### Render
+
+The Backend was uploaded to Render: https://io-records-shop-back.onrender.com
 
 ## Frontend Table of Contents - Music Store Web Application
 
