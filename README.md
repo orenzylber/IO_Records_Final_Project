@@ -8,6 +8,12 @@ Welcome to the Music Store Web Application! This application is built using Djan
 ### test username: anna@yopmail.com
 ### test password: 123
 
+#### Render
+The Backend was uploaded to Render: https://io-records-shop-back.onrender.com
+
+#### Netlify
+The Frontend was uploaded to Netlify: https://iorecords.netlify.app
+
 ## Backend Table of Contents
 This is the backend component of the Django + Angular project. It includes Django models, serializers, views, and URLs for managing artists, genres, albums, carts, orders, and more.
 
