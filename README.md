@@ -189,6 +189,12 @@ Artist Page:
 ![Artist Page](image-4.png)
 
 
+### Inactivity Timer
+
+A 15 minutes Inactivity Timer was added by:
+-creating inactivity.service.ts
+-updating app.component.ts
+-adding the InactivityService as a provider in app.module.ts
 
 
 ### License
