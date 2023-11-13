@@ -169,6 +169,7 @@ Welcome to the Music Store Web Application! This frontend part of the applicatio
 4. type command to install: `nmp i`
 5. type run command: `ng serve -o`
 
+
 Home Page:
 ![Home Page](image.png)
 
@@ -181,6 +182,10 @@ Album Page:
 ![Album Page](image-3.png)
 
 
+YouTube link in Album Page:
+![YouTube link in Album Page](image-6.png)
+
+
 Artists Page:
 ![Artists Page](image-2.png)
 
@@ -189,12 +194,13 @@ Artist Page:
 ![Artist Page](image-4.png)
 
 
+
 ### Inactivity Timer
 
 A 15 minutes Inactivity Timer was added by:
--creating inactivity.service.ts
--updating app.component.ts
--adding the InactivityService as a provider in app.module.ts
+- creating inactivity.service.ts
+- updating app.component.ts
+- adding the InactivityService as a provider in app.module.ts
 
 
 ### License
